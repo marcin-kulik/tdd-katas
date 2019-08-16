@@ -11,18 +11,22 @@ public class StringCalculator {
 		if(string=="")
 			return 0;
 		else if(string.contains(",")) {
-			List<String> listOfNumbers = Stream.of(string.split(",", -1)).collect(Collectors.toList());
-			List<Integer> intList = listOfNumbers.stream()
-                    .map(Integer::valueOf)
-                    .collect(Collectors.toList());
-			int sum = intList.stream().mapToInt(Integer::intValue).sum();			
-			return sum;
+			return separateNumbersAndSumThem(string);
 		}
 		else {
 			int stringToInt = Integer.parseInt(string);
 			return stringToInt;
 		}
 		
+	}
+	
+	private int separateNumbersAndSumThem(String string) {
+		List<String> listOfNumbers = Stream.of(string.split(",", -1)).collect(Collectors.toList());
+		List<Integer> intList = listOfNumbers.stream()
+                .map(Integer::valueOf)
+                .collect(Collectors.toList());
+		int sum = intList.stream().mapToInt(Integer::intValue).sum();
+		return sum;
 	}
 
 }
