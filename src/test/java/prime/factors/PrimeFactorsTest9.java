@@ -1,8 +1,10 @@
+package prime.factors;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
+import prime.factors.PrimeFactors9;
 
 class PrimeFactorsTest9 {
 

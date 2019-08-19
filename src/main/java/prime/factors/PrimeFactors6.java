@@ -1,17 +1,20 @@
+package prime.factors;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PrimeFactors3 {
+public class PrimeFactors6 {
 
 	public static List<Integer> of(int n) {
 	    
-		List factors = new ArrayList<Integer>();		
+		List<Integer> factors = new ArrayList<>();
 		
-		for(int divisor = 2;n>1;divisor++) 			
+		for(int divisor = 2;n>1;divisor++)
 			for(;n%divisor==0;n/=divisor) 
 				factors.add(divisor);				
-		
+	
 		return factors;
 	}
+	
+	
 
 }
