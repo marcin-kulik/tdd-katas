@@ -1,17 +1,19 @@
-package bowling.game;
+package com.marcinkulik.katas;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import com.marcinkulik.katas.BowlingGameMine;
 
-public class BowlingGameUncleBobTest {
 
-    private BowlingGameUncleBob game;
+public class BowlingGameTestMine {
+
+    private BowlingGameMine game;
     
     
     @BeforeEach
     protected void setUp() throws Exception{
-        game = new BowlingGameUncleBob();
+        game = new BowlingGameMine();
     }
     
     
@@ -37,7 +39,7 @@ public class BowlingGameUncleBobTest {
     
     @Test
     public void testOneStrike() throws Exception {
-        rollStrike();
+        game.roll(10); //strike
         game.roll(3);
         game.roll(4);
         rollMany(16,0);
@@ -49,7 +51,6 @@ public class BowlingGameUncleBobTest {
         rollMany(12,10);
         assertEquals(300, game.score());
     }
-
     
     private void rollMany(int n, int pins) {
         for(int i = 0; i < n; i++) {
@@ -60,10 +61,6 @@ public class BowlingGameUncleBobTest {
     private void rollSpare() {
         game.roll(5);
         game.roll(5);
-    }
-    
-    private void rollStrike() {
-        game.roll(10);
     }
 
 }

@@ -1,4 +1,4 @@
-package bowling.game;
+package com.marcinkulik.katas;
 
 public class BowlingGameUncleBob {
 
