@@ -1,4 +1,3 @@
 
-# TDD Katas
+# Bowling Game Kata
 
-This repository is for TDD practice by doing katas.
