@@ -1,9 +1,9 @@
-package prime.factors;
+package com.marcinkulik.katas;
 
 
 import org.junit.jupiter.api.Test;
-import prime.factors.PrimeFactors;
-import prime.factors.PrimeFactors2;
+import com.marcinkulik.katas.PrimeFactors;
+import com.marcinkulik.katas.PrimeFactors2;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;

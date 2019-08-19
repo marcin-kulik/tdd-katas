@@ -1,4 +1,4 @@
-package prime.factors;
+package com.marcinkulik.katas;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
-import prime.factors.PrimeFactors5;
+import com.marcinkulik.katas.PrimeFactors5;
 
 class PrimeFactorsTest5 {
 

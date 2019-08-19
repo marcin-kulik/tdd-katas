@@ -1,4 +1,4 @@
-package prime.factors;
+package com.marcinkulik.katas;
 import java.util.ArrayList;
 import java.util.List;
 
