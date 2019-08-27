@@ -29,10 +29,15 @@ with a method **public int Add(string numbers)**
  
 	 “//[delimiter]\n[numbers…]”
 		
-- for example
+	- for example
 	
 		“//;\n1;2” == 3 	
 		
-since the default delimiter is ‘;’ .
+	since the default delimiter is ‘;’ .
 		
-Note: All existing scenarios and tests should still be supported
+	Note: All existing scenarios and tests should still be supported
+
+5.Calling Add with a negative number will throw an exception “negatives not allowed” -
+and the negative that was passed.
+
+

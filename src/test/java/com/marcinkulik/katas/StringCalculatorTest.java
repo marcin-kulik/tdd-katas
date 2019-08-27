@@ -98,4 +98,10 @@ public class StringCalculatorTest {
 	public void handleDifferentAddedDelimiterAndCommaAndNewLine() {
 		assertEquals(20, stringCalculator.add("//+\n1+2,5\n2+10"));
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+    public void addingNegativeNumberThrowsIllegalArgumentException() {
+		stringCalculator.add("1,-2");
+    }
+	
 }

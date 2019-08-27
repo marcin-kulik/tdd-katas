@@ -1,5 +1,6 @@
 package com.marcinkulik.katas;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -33,7 +34,21 @@ public class StringCalculator {
 					.collect(Collectors.toList());
 		}
 		List<Integer> intList = listOfNumbers.stream().map(Integer::valueOf).collect(Collectors.toList());
+		
+		if(!areThereNegativeNoNumbers(intList)) {
+			throw new IllegalArgumentException();}
+			
 		int sum = intList.stream().mapToInt(Integer::intValue).sum();
 		return sum;
+	}
+	
+	private boolean areThereNegativeNoNumbers(List<Integer> list) {
+		List<Integer> listOfNegativesIntegers = new ArrayList<>();
+		
+		for (int number : list)
+			if(number < 0) {
+				listOfNegativesIntegers.add(number);
+			}
+		return listOfNegativesIntegers.isEmpty();
 	}
 }
