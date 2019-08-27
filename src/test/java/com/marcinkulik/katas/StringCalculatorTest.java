@@ -1,13 +1,18 @@
 package com.marcinkulik.katas;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class StringCalculatorTest {
 
 	private StringCalculator stringCalculator;
+	
+	@Rule
+	public ExpectedException expectedException = ExpectedException.none();
 	
 	@Before
 	public void setup() {
@@ -104,4 +109,31 @@ public class StringCalculatorTest {
 		stringCalculator.add("1,-2");
     }
 	
+	@Test
+	public void exceptionHasRequiredMessageWithOneNegativeNumber() throws Exception {
+		expectedException.expect(IllegalArgumentException.class);
+		expectedException.expectMessage("negatives not allowed : -2");
+		stringCalculator.add("1,-2");
+	}
+	
+	@Test
+	public void exceptionHasRequiredMessageWithListOfTwoNegativeNumbers() throws Exception {
+		expectedException.expect(IllegalArgumentException.class);
+		expectedException.expectMessage("negatives not allowed : -2,-3");
+		stringCalculator.add("1,-2,-3");
+	}
+	
+	@Test
+	public void exceptionHasRequiredMessageWithListOfFourNegativeNumbers() throws Exception {
+		expectedException.expect(IllegalArgumentException.class);
+		expectedException.expectMessage("negatives not allowed : -2,-3,-9,-8");
+		stringCalculator.add("1,-2,6,-3\n-9,4\n-8");
+	}
+	
+	@Test
+	public void exceptionHasRequiredMessageWithListOfFourNegativeNumbersAndChosenDelimiter() throws Exception {
+		expectedException.expect(IllegalArgumentException.class);
+		expectedException.expectMessage("negatives not allowed : -2,-3,-9,-8");
+		stringCalculator.add("//+\n1+-2,6+-3\n-9,4\n-8");
+	}
 }

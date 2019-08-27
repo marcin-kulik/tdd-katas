@@ -37,7 +37,7 @@ with a method **public int Add(string numbers)**
 		
 	Note: All existing scenarios and tests should still be supported
 
-5.Calling Add with a negative number will throw an exception “negatives not allowed” -
+5. Calling **Add** with a negative number will throw an exception “negatives not allowed” -
 and the negative that was passed.
 
-
+6. If there are multiple negatives, show all of them in the exception message.

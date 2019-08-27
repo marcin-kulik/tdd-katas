@@ -7,7 +7,8 @@ import java.util.stream.Stream;
 
 public class StringCalculator {
 
-	char delimiter = ' ';
+	private char delimiter = ' ';
+	private List<Integer> listOfNegativesIntegers;	
 
 	public int add(String string) {
 		if (string == "")
@@ -35,20 +36,25 @@ public class StringCalculator {
 		}
 		List<Integer> intList = listOfNumbers.stream().map(Integer::valueOf).collect(Collectors.toList());
 		
-		if(!areThereNegativeNoNumbers(intList)) {
-			throw new IllegalArgumentException();}
+		if(returnsTrueIfNoNegativeNumbersProvided(intList)==false) {
+			String negativeNumbersString = listOfNegativesIntegers.stream().map(Object::toString).collect(Collectors.joining(","));
+			throw new IllegalArgumentException("negatives not allowed : " + negativeNumbersString);
+		}
 			
 		int sum = intList.stream().mapToInt(Integer::intValue).sum();
 		return sum;
 	}
 	
-	private boolean areThereNegativeNoNumbers(List<Integer> list) {
-		List<Integer> listOfNegativesIntegers = new ArrayList<>();
-		
+	private boolean returnsTrueIfNoNegativeNumbersProvided(List<Integer> list) {
+		addNegativeNumbersIntoList(list);
+		return listOfNegativesIntegers.isEmpty();
+	}
+	
+	private void addNegativeNumbersIntoList(List<Integer> list) {
+		listOfNegativesIntegers = new ArrayList<>();
 		for (int number : list)
 			if(number < 0) {
 				listOfNegativesIntegers.add(number);
 			}
-		return listOfNegativesIntegers.isEmpty();
 	}
 }
